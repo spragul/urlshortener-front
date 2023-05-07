@@ -1,23 +1,49 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css"
+
+import { Route } from 'react-router-dom';
+import { Login } from './pages/login';
+import { Signup } from './pages/signup';
+import { Firstpage } from './pages/emtypage';
+import { Forgot } from './pages/forgotpass';
+import { Reset } from './pages/resetpassword';
+import { UrlShortener } from './url/urlDashboard';
+import { TableList } from './url/urlList';
+import { Dashboard } from './pages/Dashboard';
+import EmailVerify from './pages/verifyemail';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Route exact path='/'>
+        <Firstpage/>
+      </Route>
+      <Route exact path='/login'>
+        <Login/>
+      </Route>
+      <Route path='/signup'>
+        <Signup/>
+      </Route>
+      <Route path='/:id/verify/:token/'>
+        <EmailVerify/>
+      </Route>
+      <Route path='/forgotpassword'>
+        <Forgot/>
+      </Route>
+      <Route path='/resetpassword'>
+        <Reset/>
+      </Route>
+      <Route path='/url/short'>
+        <UrlShortener/>
+      </Route>
+      <Route path='/url/list'>
+        <TableList/>
+      </Route>
+      <Route path='/dashd'>
+        <Dashboard/>
+      </Route>
     </div>
   );
 }
