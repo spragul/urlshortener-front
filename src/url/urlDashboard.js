@@ -105,7 +105,7 @@ export function UrlShortener() {
               </form>
             </div>
           </MDBCardBody>
-          {newdata ? <p style={{ backgroundColor: "green", color: "white" }}>LINK: <span>{newdata.data.shortId} date{newdata.data.createdAt} </span></p> : ""}
+          {newdata ? <p style={{ backgroundColor: "green", color: "white" }}>LINK: https://urlshortener-3bwd.onrender.com{newdata.data.shortId}</p> : ""}
           <div className='date-month'>
             <p>Number of Link created a Day: <span>{daycount}</span></p>
             <p>Number of Link created a Month: <span>{monthcount}</span></p>
