@@ -24,12 +24,12 @@ const EmailVerify = () => {
 	}, [param]);
 
 	return (
-		<div>
+		<div style={{backgroundColor:"greenyellow"}}>
 			{validUrl ? (
 				<div >
 					<h1>Email verified successfully</h1>
 					<Link to="/login">
-						<button >Login</button>
+						<button style={{border:"3px solid red",borderRadius:"10px"}}>Login</button>
 					</Link>
 				</div>
 			) : (
