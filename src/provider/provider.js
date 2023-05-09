@@ -9,7 +9,7 @@ const AppProvider = ({children})=>{
     const getDetails = async () => {
         try {
             const headers = { 'Authorization': `Bearer ${token}` };
-            const response = await fetch("https://urlshortener-3bwd.onrender.com", { headers });
+            const response = await fetch("https://urlshortener-3bwd.onrender.com/url/list", { headers });
             const data = await response.json();
             console.log(data);
             SetTabledata(data.result)

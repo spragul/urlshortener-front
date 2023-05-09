@@ -1,9 +1,9 @@
 import {
-   
+
     FaRegEdit,
     FaBookReader,
     FaLink,
-   
+
 
 } from "react-icons/fa";
 import { NavLink, useHistory } from 'react-router-dom';
@@ -13,6 +13,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { toast } from "react-toastify";
 
 
 function Sidebar({ children }) {
@@ -62,24 +63,27 @@ export default Sidebar;
 export function NavScrollExample({ title }) {
     const history = useHistory()
     const logout = () => {
-    localStorage.removeItem('token');
-   history.push('/login');
-  };
-  
+        sessionStorage.clear();
+        toast("User Logout")
+        history.push('/login');
+    };
+
     return (
         <div>
+
             <Navbar className="nav-clr" expand="lg">
                 <Container fluid>
                     <Navbar.Brand href="#" className="title">{title}</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="navbarScroll" />
+                    <Navbar.Toggle style={{backgroundColor:"white",border:"2px solid red",borderRight:"10px"}} aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
                             className="me-auto my-2 my-lg-0"
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <button  className="nav-btn-clr" class="btn me-2" type="button" onClick={() => history.push("/")}>Home</button>
-                            <button  className="nav-btn-clr" class="btn me-2" type="button" onClick={() => history.push("/url/list")}>URL List</button>
+
+                            <button className="nav-btn-clr" class="btn me-2" type="button" onClick={() => history.push("/")}>Home</button>
+                            <button className="nav-btn-clr" class="btn me-2" type="button" onClick={() => history.push("/url/list")}>URL List</button>
                         </Nav>
                         <Form className="d-flex">
                             <Form.Control
@@ -91,7 +95,7 @@ export function NavScrollExample({ title }) {
                             <Button class="btn btn-outline-warning me-2">Search</Button>
                         </Form>
                         <button className="nav-btn-clr" class="btn me-2" type="button" onClick={() => history.push("/login")}>Login</button>
-                        <button className="nav-btn-clr" class="btn me-2" type="button" conClick={logout}>logout</button>
+                        <button className="nav-btn-clr" class="btn me-2" type="button" onClick={() => logout()}>logout</button>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
@@ -111,3 +115,7 @@ export function Footer() {
         </div>
     )
 }
+
+{/* <nav class="navbar navbar-dark bg-dark">
+  <!-- Navbar content -->
+</nav> */}
