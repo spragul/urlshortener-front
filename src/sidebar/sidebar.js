@@ -73,7 +73,6 @@ export function NavScrollExample({ title }) {
 
             <Navbar className="nav-clr" expand="lg">
                 <Container fluid>
-                    <Navbar.Brand href="#" className="title">{title}</Navbar.Brand>
                     <Navbar.Toggle style={{backgroundColor:"white",border:"2px solid red",borderRight:"10px"}} aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav
@@ -82,7 +81,7 @@ export function NavScrollExample({ title }) {
                             navbarScroll
                         >
 
-                            <button className="nav-btn-clr" class="btn me-2" type="button" onClick={() => history.push("/")}>Home</button>
+                            <button className="nav-btn-clr" class="btn me-2" type="button" onClick={() => history.push("/url/short")}>Home</button>
                             <button className="nav-btn-clr" class="btn me-2" type="button" onClick={() => history.push("/url/list")}>URL List</button>
                         </Nav>
                         <Form className="d-flex">
@@ -116,6 +115,3 @@ export function Footer() {
     )
 }
 
-{/* <nav class="navbar navbar-dark bg-dark">
-  <!-- Navbar content -->
-</nav> */}
