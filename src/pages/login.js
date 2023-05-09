@@ -13,6 +13,7 @@ import { useFormik } from "formik";
 import { toast } from "react-toastify";
 import { useHistory } from "react-router-dom";
 import * as yup from 'yup'
+import { AppState } from '../provider/provider';
 
 
 const userSchemaValidation = yup.object({
@@ -24,6 +25,7 @@ const userSchemaValidation = yup.object({
 
 export function Login() {
   const history =useHistory()
+  const{setRefresh}=AppState();
   const log = async ({ loginuser }) => {
     try {
       const response = await fetch("https://urlshortener-3bwd.onrender.com/login", {
@@ -38,9 +40,10 @@ export function Login() {
       console.log(data);
       sessionStorage.setItem('token',data.token)
         history.push("/url/short")
-        toast("User login successful")
+        toast.success("User login successful")
+        setRefresh("hi");
       }else{
-        toast("invalide userId password")
+        toast.error("invalide userId password")
       }
     } catch (error) {
       console.log(error)

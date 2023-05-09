@@ -3,6 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 const AppContext =createContext();
 const AppProvider = ({children})=>{
+    const [refresh,setRefresh]=useState([]);
     const [tabledata, SetTabledata] = useState([])
     let token = sessionStorage.getItem('token');
     console.log(token);
@@ -23,12 +24,14 @@ const AppProvider = ({children})=>{
         }else{
             console.log("token expried")
         }
-}, [])
+}, [refresh])
 return(
     <AppContext.Provider
     value={{
         tabledata,
-        SetTabledata
+        SetTabledata,
+        refresh,
+        setRefresh
     }}>
         {children}
     </AppContext.Provider>
