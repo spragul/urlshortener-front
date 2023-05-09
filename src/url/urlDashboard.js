@@ -18,7 +18,8 @@ const urlSchemaValidation = yup.object({
 
 
 export function UrlShortener() {
-  const { tabledata } = AppState();
+  const { tabledata,setRefresh} = AppState();
+
   let newDate = new Date()
   let date = newDate.getDate();
   let month = newDate.getMonth() + 1;
@@ -53,7 +54,8 @@ export function UrlShortener() {
       const data = await response.json();
       console.log(data);
       setNewdata(data);
-      toast("Your Link Shorted")
+      setRefresh("1");
+     toast("url short");
 
     } catch (error) {
       console.log(error)
