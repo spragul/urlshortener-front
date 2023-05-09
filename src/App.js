@@ -11,7 +11,6 @@ import { Forgot } from './pages/forgotpass';
 import { Reset } from './pages/resetpassword';
 import { UrlShortener } from './url/urlDashboard';
 import { TableList } from './url/urlList';
-import { Dashboard } from './pages/Dashboard';
 import EmailVerify from './pages/verifyemail';
 
 function App() {
@@ -40,9 +39,6 @@ function App() {
       </Route>
       <Route path='/url/list'>
         <TableList/>
-      </Route>
-      <Route path='/dashd'>
-        <Dashboard/>
       </Route>
     </div>
   );

@@ -4,12 +4,12 @@ import { createContext, useContext, useEffect, useState } from "react";
 const AppContext =createContext();
 const AppProvider = ({children})=>{
     const [tabledata, SetTabledata] = useState([])
-    useEffect(() => {
+    let token = sessionStorage.getItem('token');
+    console.log(token);
     const getDetails = async () => {
         try {
-            const response = await fetch("https://urlshortener-3bwd.onrender.com/url/list", {
-                method: "GET"
-            });
+            const headers = { 'Authorization': `Bearer ${token}` };
+            const response = await fetch("https://urlshortener-3bwd.onrender.com", { headers });
             const data = await response.json();
             console.log(data);
             SetTabledata(data.result)
@@ -17,7 +17,12 @@ const AppProvider = ({children})=>{
             console.log(error);
         }
     }
-    getDetails();
+    useEffect(() => {
+        if(token){
+            getDetails()
+        }else{
+            console.log("token expried")
+        }
 }, [])
 return(
     <AppContext.Provider

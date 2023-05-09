@@ -61,6 +61,11 @@ export default Sidebar;
 
 export function NavScrollExample({ title }) {
     const history = useHistory()
+    const logout = () => {
+    localStorage.removeItem('token');
+   history.push('/login');
+  };
+  
     return (
         <div>
             <Navbar className="nav-clr" expand="lg">
@@ -86,6 +91,7 @@ export function NavScrollExample({ title }) {
                             <Button class="btn btn-outline-warning me-2">Search</Button>
                         </Form>
                         <button className="nav-btn-clr" class="btn me-2" type="button" onClick={() => history.push("/login")}>Login</button>
+                        <button className="nav-btn-clr" class="btn me-2" type="button" conClick={logout}>logout</button>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

@@ -3,7 +3,6 @@ import Sidebar from "../sidebar/sidebar";
 
 
 export function TableList() {
-   
     const{tabledata}=AppState();
 
 
