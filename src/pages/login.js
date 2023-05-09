@@ -34,11 +34,14 @@ export function Login() {
         },
       })
       const data = await response.json();
+      if(data.token){
       console.log(data);
       sessionStorage.setItem('token',data.token)
         history.push("/url/short")
         toast("User login successful")
-    
+      }else{
+        toast("invalide userId password")
+      }
     } catch (error) {
       console.log(error)
       toast("error")
