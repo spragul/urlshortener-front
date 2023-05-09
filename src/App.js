@@ -31,7 +31,7 @@ function App() {
       <Route path='/forgotpassword'>
         <Forgot/>
       </Route>
-      <Route path='/resetpassword'>
+      <Route path='/resetpassword/:id/:token'>
         <Reset/>
       </Route>
       <Route path='/url/short'>
